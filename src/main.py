@@ -103,7 +103,8 @@ def draw_blinker():
             color = [128, 0, 0] # red
 
         filters = [('multiply', color)]
-        draw_frame(cache['digits'][10], -2, 9, filters)
+        draw_frame(cache['digits'][10], 7, 11, filters)
+        draw_frame(cache['digits'][10], 6, 11, filters)
 
 
 def draw():

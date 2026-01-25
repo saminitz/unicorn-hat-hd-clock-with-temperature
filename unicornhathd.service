@@ -1,0 +1,16 @@
+[Unit]
+Description=Unicorn HAT HD Clock
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/unicorn-hat-hd-clock/src
+ExecStart=/usr/bin/python3 /home/pi/unicorn-hat-hd-clock/src/main.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
