@@ -26,7 +26,7 @@ def update_time():
 
     # Try to update the time from the NTP server
     while not time_updated:
-        if (os.system('ntpdate -u pool.ntp.org') == 0):
+        if (os.system('/usr/sbin/ntpdate -u pool.ntp.org') == 0):
             time_updated = True
         else:
             sleep_time = clock_options.get('retryInterval')

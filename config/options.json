@@ -12,7 +12,7 @@
   },
   "led": {
     "fps": 10,
-    "minBrightness": 0.01,
+    "minBrightness": 0.02,
     "maxBrightness": 0.4,
     "rotation": 90
   },
