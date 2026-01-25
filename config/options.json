@@ -1,33 +1,33 @@
 {
-    "clock": {
-        "12hrFormat": true,
-        "demo": false,
-        "omitLeadingZeros": true,
-        "color": [
-            255,
-            255,
-            255
-        ],
-        "retryInterval": 60
-    },
-    "led": {
-        "fps": 10,
-        "minBrightness": 0.1,
-        "maxBrightness": 1.0,
-        "rotation": 0
-    },
-    "weather": {
-        "enabled": false,
-        "updateInterval": 1800,
-        "retryInterval": 60
-    },
-    "sunrise": {
-        "enabled": false,
-        "updateInterval": 86400,
-        "retryInterval": 60
-    },
-    "location": {
-        "latitude": 0,
-        "longitude": 0
-    }
+  "clock": {
+    "12hrFormat": false,
+    "demo": false,
+    "omitLeadingZeros": true,
+    "color": [
+      255,
+      255,
+      255
+    ],
+    "retryInterval": 60
+  },
+  "led": {
+    "fps": 10,
+    "minBrightness": 0.01,
+    "maxBrightness": 0.4,
+    "rotation": 90
+  },
+  "weather": {
+    "enabled": true,
+    "updateInterval": 1800,
+    "retryInterval": 60
+  },
+  "sunrise": {
+    "enabled": true,
+    "updateInterval": 86400,
+    "retryInterval": 60
+  },
+  "location": {
+    "latitude": 52.0259663779903,
+    "longitude": 8.531172989592362
+  }
 }
