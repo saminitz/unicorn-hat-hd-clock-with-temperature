@@ -149,7 +149,21 @@ def get_weather_sprite():
             return get_sprite_from_code(item.code, item.is_day)
 
     return get_sprite_from_code(-1)
+
+def get_temp():
+    # If no weather data, return fallback dummy
+    if forecast_items is None:
+        return 0
     
+    # Get the current time
+    utc_now = get_time()
+    
+    # Find forecast item matching the current time
+    for item in forecast_items:
+        if utc_now < item.time:
+            return item.temperature
+
+    return 0
 
 if weather_options.get('enabled'):
     thread.start_new_thread(fetch_weather_data_thread, ())

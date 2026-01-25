@@ -4,7 +4,7 @@ import time
 from time_system import get_time, get_time_updated
 from sprite_cache import cache, import_sprite
 from led import draw_frame, loop_draw, set_px
-from weather import get_weather_sprite
+from weather import get_weather_sprite, get_temp
 from options import clock_options
 from sprite_enum import Sprite
 
@@ -54,14 +54,15 @@ def draw_time():
     minute_str = str(minute).zfill(2)
 
     # Draw hour digits
-    origin = (2, 3)
+    originHour = (0, 11)
     if not (OMIT_LEADING_ZERO and int(hour_str[0]) == 0):
-        draw_frame(cache['digits'][int(hour_str[0])], origin[0], origin[1], filters)
-    draw_frame(cache['digits'][int(hour_str[1])], origin[0] + 6, origin[1], filters)
+        draw_frame(cache['digits'][int(hour_str[0])], originHour[0], originHour[1], filters)
+    draw_frame(cache['digits'][int(hour_str[1])], originHour[0] + 4, originHour[1], filters)
 
     # Draw minute digits
-    draw_frame(cache['digits'][int(minute_str[0])], origin[0], origin[1] + 6, filters)
-    draw_frame(cache['digits'][int(minute_str[1])], origin[0] + 6, origin[1] + 6, filters)
+    originMinute = (9, 11)
+    draw_frame(cache['digits'][int(minute_str[0])], originMinute[0], originMinute[1], filters)
+    draw_frame(cache['digits'][int(minute_str[1])], originMinute[0] + 4, originMinute[1], filters)
 
 
 def draw_weather():
@@ -83,6 +84,15 @@ def draw_weather():
 
     draw_frame(weather_sprite[frame_index], 0, 0)
 
+def draw_temp():
+    #Get Temp
+    temp = int(get_temp())
+    temp_str = str(temp).zfill(2)
+    if temp_str[0] != '-' and int(temp_str[0]) == 0:
+        draw_frame(cache['digits'][int(temp_str[1])], 13, 2, filters)
+    else:
+        draw_frame(cache['digits'][int(temp_str[0]) if temp_str[0] != '-' else 11], 9, 2, filters)
+        draw_frame(cache['digits'][int(temp_str[1])], 13, 2, filters)
 
 def draw_blinker():
     ticks = get_time().second % 2 == 0
@@ -98,6 +108,7 @@ def draw_blinker():
 
 def draw():
     draw_weather()
+    draw_temp()
     draw_blinker()
     draw_time()
 
@@ -106,7 +117,7 @@ if __name__ == '__main__':
 
     # Import sprites
     digits_path = os.path.join(sys.path[0], '..', 'sprites', 'digits.png')
-    import_sprite(digits_path, (8, 8), 1)
+    import_sprite(digits_path, (3, 5), 1)
 
     sprites_path = os.path.join(sys.path[0], '..', 'sprites', 'weather_icons')
     sprites_list = os.listdir(sprites_path)
