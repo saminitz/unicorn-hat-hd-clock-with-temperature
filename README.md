@@ -9,8 +9,6 @@ This script relies on:
 
 ## Preview
 
-![Photo of the clock](https://github.com/user-attachments/assets/63523a04-2027-4ba8-a1f9-cef3b82d814c)
-
 ![wind](https://github.com/user-attachments/assets/1e3cdf90-f307-4104-978f-d70bd5065171)
 ![sun](https://github.com/user-attachments/assets/d5dd5a09-81a2-40c8-a3c5-a41aafacf408)
 ![sun and haze](https://github.com/user-attachments/assets/745e455f-a051-4a81-9e9e-31946dee1600)
